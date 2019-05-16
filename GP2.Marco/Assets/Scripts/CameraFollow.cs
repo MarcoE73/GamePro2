@@ -1,0 +1,20 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour
+{
+
+    public Transform Player;
+    public float cameraDistance;
+
+    void Awake()
+    {
+        GetComponent<UnityEngine.Camera>().orthographicSize = ((Screen.height) / cameraDistance);
+    }
+
+    void FixedUpdate()
+    {
+        transform.position = new Vector3(Player.position.x, Player.position.y, transform.position.z);
+    }
+}
